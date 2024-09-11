@@ -1,4 +1,4 @@
-import 'package:dio_flutter_study/screens/registrationData_screen.dart';
+import 'package:dio_flutter_study/screens/registration_data_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/home_screen.dart';
@@ -21,10 +21,7 @@ class MyApp extends StatelessWidget {
           "home": (context) => const MyHomePage(
                 title: 'DIO Flutter Study | Home Page',
               ),
-          "registration": (context) => const RegistrationDataScreen(
-                title: "Registro",
-                data: [],
-              ),
+          "registration": (context) => const RegistrationDataScreen(),
         },
       ),
     );
