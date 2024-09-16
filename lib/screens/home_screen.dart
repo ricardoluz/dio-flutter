@@ -1,7 +1,7 @@
-import 'package:dio_flutter_study/screens/pageviews/pageview_01.dart';
+import 'package:dio_flutter_study/screens/pageviews/pageview_01_card.dart';
 import 'package:dio_flutter_study/screens/pageviews/pageview_02.dart';
 import 'package:dio_flutter_study/screens/pageviews/pageview_03.dart';
-import 'package:dio_flutter_study/widgets/custom_AppBar.dart';
+import 'package:dio_flutter_study/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -24,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       //   title: Text(widget.title),
       // ),
-      appBar: CustomAppbar(title: widget.title),
+      appBar: CustomAppbar(titleApp: widget.title),
       drawer: const CustomDrawer(),
       body: Column(
         children: [
@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
               children: const [
-                PageView01(),
+                CardPage(),
                 PageView02(),
                 PageView03(),
               ],

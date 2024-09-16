@@ -1,6 +1,6 @@
 import 'package:dio_flutter_study/repositories/language_repository.dart';
 import 'package:dio_flutter_study/repositories/level_repository.dart';
-import 'package:dio_flutter_study/widgets/custom_AppBar.dart';
+import 'package:dio_flutter_study/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -28,11 +28,18 @@ class _RegistrationDataScreenState extends State<RegistrationDataScreen> {
   LanguageRepository languageRepository = LanguageRepository();
   List languages = [];
   List preferredLanguages = [];
-
+  //
+  int experienceTime = 1;
   //
   double targetSalary = 0.0;
 
-  get items{ return null;}
+  get items{
+    List<DropdownMenuItem<int>> items = [];
+    for (int i =1;i<10;i++) {
+      items.add(DropdownMenuItem(value: i, child: Text(i.toString())));
+    }
+    return items;
+  }
 
   @override
   void initState() {
@@ -58,7 +65,7 @@ class _RegistrationDataScreenState extends State<RegistrationDataScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppbar(title: "Meus dados"),
+      appBar: const CustomAppbar(titleApp: "Meus dados"),
       drawer: const CustomDrawer(),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
@@ -127,8 +134,13 @@ class _RegistrationDataScreenState extends State<RegistrationDataScreen> {
             returnText("Tempo de experiência"),
             DropdownButton(
               items: items,
-              onChanged: (value) {},
+              onChanged: (value) {
+                setState(() {
+                  experienceTime = value!;
+                });
+              },
               isExpanded: true,
+              value: experienceTime,
             ),
             returnText("Pretensão Salarial: R\$ ${f.format(targetSalary)}"),
             Slider(
