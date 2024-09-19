@@ -12,7 +12,7 @@ class TaskRepository {
     await Future.delayed(const Duration(milliseconds: 200)); //Simulation
     return _tasks
         .where(
-          (task) => task.getCompleted() == false,
+          (task) => task.completed == false,
         )
         .toList();
   }
@@ -26,14 +26,14 @@ class TaskRepository {
     await Future.delayed(const Duration(milliseconds: 200)); //Simulation
     _tasks
         .where(
-          (task) => task.getId() == id,
+          (task) => task.id == id,
         )
         .first
-        .setCompleted(completed);
+        .completed = completed;
   }
 
   Future<void> removeTask(String id) async {
     await Future.delayed(const Duration(milliseconds: 200)); //Simulation
-    _tasks.remove(_tasks.where((task) => task.getId() == id).first);
+    _tasks.remove(_tasks.where((task) => task.id == id).first);
   }
 }

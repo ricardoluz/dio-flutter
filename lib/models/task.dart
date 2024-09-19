@@ -9,23 +9,15 @@ class Task {
 
   Task(this._description, this._completed);
 
-  String getId() {
-    return _id;
-  }
+  String get id => _id;
 
-  String getDescription(){
-    return _description;
-  }
-
-  void setDescription(String description){
+  String get description => _description;
+  set description(String description) {
     _description = description;
   }
 
-  bool getCompleted(){
-    return _completed;
-  }
-
-  void setCompleted(bool completed){
+  bool get completed => _completed;
+  set completed(bool completed){
     _completed = completed;
   }
 }

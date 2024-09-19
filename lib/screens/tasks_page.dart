@@ -40,8 +40,9 @@ class _TasksPageState extends State<TasksPage> {
                 builder: (BuildContext bc) {
                   return AlertDialog(
                     title: const Text("Adicionar tarefa"),
-                    content: TextField(
+                    content: TextField(keyboardType: TextInputType.multiline,
                       controller: descriptionController,
+                      autofocus: true,
                       decoration: const InputDecoration(
                         border: UnderlineInputBorder(),
                         // hintText: "Descrição",
@@ -90,18 +91,18 @@ class _TasksPageState extends State<TasksPage> {
                     itemBuilder: (BuildContext bc, int index) {
                       Task task = _tasks[index];
                       return Dismissible(
-                        key: Key(task.getId()),
+                        key: Key(task.id),
                         onDismissed: (DismissDirection direction) async {
-                          await taskRepository.removeTask(task.getId());
+                          await taskRepository.removeTask(task.id);
                           await getTasks(onlyUncompleted);
                         },
                         child: ListTile(
-                          title: Text(task.getDescription()),
+                          title: Text(task.description),
                           trailing: Switch(
-                            value: task.getCompleted(),
+                            value: task.completed,
                             onChanged: (bool value) async {
                               await taskRepository.changeTaskCompletion(
-                                  task.getId(), value);
+                                  task.id, value);
                               await getTasks(onlyUncompleted);
                             },
                           ),
