@@ -20,7 +20,7 @@ class CardDetailPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.close_rounded)),
+                  icon: const Icon(Icons.close_rounded)),
               Row(
                 children: [
                   Image.asset(

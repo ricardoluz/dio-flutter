@@ -1,6 +1,7 @@
 import 'package:dio_flutter_study/screens/pageviews/pageview_01_card.dart';
 import 'package:dio_flutter_study/screens/pageviews/pageview_02.dart';
 import 'package:dio_flutter_study/screens/pageviews/pageview_03.dart';
+import 'package:dio_flutter_study/screens/tasks_page.dart';
 import 'package:dio_flutter_study/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -40,10 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 CardPage(),
                 PageView02(),
                 PageView03(),
+                PageView03(),
+                TasksPage(),
               ],
             ),
           ),
           BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
             currentIndex: currentPage,
             onTap: (value) {
               pageController.jumpToPage(value);
@@ -55,6 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   label: "H2", icon: Icon(Icons.account_circle)),
               BottomNavigationBarItem(
                   label: "H3", icon: Icon(Icons.account_circle)),
+              BottomNavigationBarItem(
+                  label: "H4", icon: Icon(Icons.holiday_village_rounded)),
+              BottomNavigationBarItem(
+                  label: "Tasks", icon: Icon(Icons.task_rounded)),
             ],
           )
         ],
