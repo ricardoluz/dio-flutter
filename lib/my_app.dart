@@ -1,3 +1,4 @@
+import 'package:dio_flutter_study/screens/random_numbers.dart';
 import 'package:dio_flutter_study/screens/registration_data_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
                 title: 'DIO Flutter Study | Home Page',
               ),
           "registration": (context) => const RegistrationDataScreen(),
+          "randomNumbers": (context) => const RandomNumbersPage(),
         },
       ),
     );
